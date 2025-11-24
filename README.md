@@ -212,6 +212,19 @@ Want to use this in proprietary software or keep your modifications closed-sourc
 - Email: barzin@duck.com
 - Web: https://sanctus.ca
 
+### Special Exemptions (60% joke, 40% serious)
+
+The following groups get a free pass because they're either too broke, too cool, or both:
+
+- **Arch Linux users** who compile from source and use i3/sway (bonus points for maintaining AUR packages)
+- **Non-binary catgirl hackers** with anime pfps and thigh-highs (you're valid and based)
+- **Starving artist INTPs** who chose existential crisis over a stable career (MBTI is cringe but so is capitalism)
+- **ThinkPad users** with coffee stains and based stickers
+
+All other filthy normies, corps, and people who unironically use Windows for development: **pay up or face the wrath of strongly-worded AGPLv3 compliance notices.**
+
+*(If you genuinely can't afford a commercial license but need one, email me. I'm not EA.)*
+
 See [LICENSE](LICENSE) for full details.
 
 ---

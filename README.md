@@ -2,7 +2,7 @@
 
 **Universal framework for accelerating scientific discovery through hierarchical lookup table (LUT) composition.**
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![License: Dual (AGPLv3/Commercial)](https://img.shields.io/badge/License-Dual%20(AGPLv3%2FCommercial)-blue.svg)](#license)
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 
 ---
@@ -198,9 +198,19 @@ python tests/validate_comprehensive.py
 
 ## License
 
-**AGPLv3** - "f*** the system, blow the whole thing up"; this software is very copyleft, it's very free, and you're very disallowed from forking it to make money off of it. If you don't like it go code your own better proprietary version from scratch, but since you didn't think of creating this and you weren't going to pay me to make it anyway you can get lost.
+**Dual License: AGPLv3 or Commercial**
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, via version 3 of the License.
+This software is available under a dual-licensing model:
+
+### Open Source License (AGPLv3)
+Free for non-commercial, open-source, and research use. "f*** the system, blow the whole thing up" - this software is very copyleft and very free. Derivative works must also be open-sourced under AGPLv3.
+
+### Commercial License
+Want to use this in proprietary software or keep your modifications closed-source? That requires a commercial license. If you're making money off this work, I deserve a cut.
+
+**Commercial licensing contact:**
+- Email: barzin@duck.com
+- Web: https://sanctus.ca
 
 See [LICENSE](LICENSE) for full details.
 

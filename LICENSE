@@ -1,7 +1,32 @@
+================================================================================
+DEUS EX MACHINA - DUAL LICENSING
+================================================================================
+
+Copyright (C) 2025 Barzin Lotfabadi
+
+This software is available under a dual-licensing model:
+
+1. OPEN SOURCE LICENSE (AGPLv3)
+   - Free for non-commercial, open-source, and research use
+   - Must comply with AGPLv3 terms (see below)
+   - Derivative works must also be open-sourced under AGPLv3
+
+2. COMMERCIAL LICENSE
+   - Required for commercial use, proprietary applications, or closed-source
+     modifications
+   - Allows integration into proprietary software without AGPLv3 requirements
+   - Contact for commercial licensing:
+
+     Barzin Lotfabadi
+     Email: barzin@duck.com
+     Web: https://sanctus.ca
+
+If you are unsure which license applies to your use case, please contact the
+copyright holder.
+
+================================================================================
 GNU AFFERO GENERAL PUBLIC LICENSE
 Version 3, 19 November 2007
-
-Copyright (C) 2025 Barzin L.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published

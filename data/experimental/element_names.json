@@ -1,0 +1,13 @@
+{
+  "description": "Standard element names and symbols for observed elements (Z=1-118)",
+  "source": "IUPAC Periodic Table of the Elements (2022)",
+  "elements": {
+    "1": {"symbol": "H", "name": "Hydrogen"},
+    "2": {"symbol": "He", "name": "Helium"},
+    "6": {"symbol": "C", "name": "Carbon"},
+    "7": {"symbol": "N", "name": "Nitrogen"},
+    "8": {"symbol": "O", "name": "Oxygen"},
+    "79": {"symbol": "Au", "name": "Gold"},
+    "118": {"symbol": "Og", "name": "Oganesson"}
+  }
+}

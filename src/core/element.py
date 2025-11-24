@@ -53,11 +53,13 @@ class Element:
     # Confidence scores for each property
     confidence: Dict[str, float]
 
+    # Chemical properties (Phase 2.5+)
+    electronegativity: Optional[float] = None  # Pauling scale
+
     # Optional properties (to be added in future phases)
     group: Optional[int] = None
     period: Optional[int] = None
     atomic_radius: Optional[float] = None
-    electronegativity: Optional[float] = None
     ionization_energy: Optional[float] = None
     oxidation_states: Optional[list] = None
     half_life: Optional[float] = None

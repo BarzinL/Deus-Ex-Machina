@@ -198,9 +198,9 @@ python tests/validate_comprehensive.py
 
 ## License
 
-**AGPLv3** - "f*** the system, blow the whole thing up"
+**AGPLv3** - "f*** the system, blow the whole thing up"; this software is very copyleft, it's very free, and you're very disallowed from forking it to make money off of it. If you don't like it go code your own better proprietary version from scratch, but since you didn't think of creating this and you weren't going to pay me to make it anyway you can get lost.
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, via version 3 of the License.
 
 See [LICENSE](LICENSE) for full details.
 

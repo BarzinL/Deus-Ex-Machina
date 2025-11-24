@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deus-ex-machina"
+version = "0.1.0"
+description = "Universal framework for accelerating scientific discovery through hierarchical LUT composition"
+authors = [
+    {name = "Barzin L.", email = "noreply@github.com"}
+]
+readme = "README.md"
+license = {text = "AGPL-3.0-or-later"}
+requires-python = ">=3.13"
+keywords = [
+    "scientific-computing",
+    "chemistry",
+    "materials-science",
+    "drug-discovery",
+    "periodic-table",
+    "quantum-mechanics",
+    "computational-chemistry"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+dependencies = [
+    # Core dependencies (minimal for now)
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.7.0",
+    "ruff>=0.0.285",
+]
+
+[project.urls]
+Homepage = "https://github.com/BarzinL/Deus-Ex-Machina"
+Repository = "https://github.com/BarzinL/Deus-Ex-Machina"
+Issues = "https://github.com/BarzinL/Deus-Ex-Machina/issues"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "validate_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py313']
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+]
+ignore = [
+    "E501", # line too long (handled by black)
+]

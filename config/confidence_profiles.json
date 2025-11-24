@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Confidence scoring profiles for element property predictions. These ranges can be adjusted as physics understanding improves without changing code.",
+  "version": "1.0.0",
+  "last_updated": "2025-11-23",
+
+  "profiles": {
+    "default": {
+      "description": "Standard confidence profile based on current physics understanding (2025)",
+      "z_ranges": {
+        "observed": {
+          "description": "Experimentally observed elements with spectroscopic data",
+          "range": [1, 118],
+          "confidence": {
+            "electron_configuration": 1.0,
+            "atomic_radius": 0.95,
+            "electronegativity": 0.95,
+            "ionization_energy": 0.95,
+            "oxidation_states": 0.90,
+            "half_life": 0.90,
+            "note": "Experimental spectroscopy and measurements"
+          }
+        },
+        "synthesis_active": {
+          "description": "Elements 119-120 with active synthesis attempts",
+          "range": [119, 120],
+          "confidence": {
+            "electron_configuration": 0.85,
+            "atomic_radius": 0.60,
+            "electronegativity": 0.55,
+            "ionization_energy": 0.60,
+            "oxidation_states": 0.70,
+            "half_life": 0.50,
+            "note": "Multiple theoretical models agree, synthesis planned 2026-2028"
+          }
+        },
+        "island_of_stability": {
+          "description": "Predicted island of stability (double magic nuclei)",
+          "range": [121, 126],
+          "confidence": {
+            "electron_configuration": 0.75,
+            "atomic_radius": 0.50,
+            "electronegativity": 0.45,
+            "ionization_energy": 0.50,
+            "oxidation_states": 0.60,
+            "half_life": 0.40,
+            "note": "Nuclear shell model predictions, Z=126 or N=184 magic numbers"
+          }
+        },
+        "extended_period_8": {
+          "description": "Extended period 8 elements, models begin to diverge",
+          "range": [127, 137],
+          "confidence": {
+            "electron_configuration": 0.55,
+            "atomic_radius": 0.40,
+            "electronegativity": 0.35,
+            "ionization_energy": 0.40,
+            "oxidation_states": 0.45,
+            "half_life": 0.25,
+            "note": "Theoretical models diverge, high uncertainty"
+          }
+        },
+        "supercritical": {
+          "description": "Supercritical regime approaching QED limit (Z~137)",
+          "range": [138, 172],
+          "confidence": {
+            "electron_configuration": 0.30,
+            "atomic_radius": 0.25,
+            "electronegativity": 0.20,
+            "ionization_energy": 0.25,
+            "oxidation_states": 0.30,
+            "half_life": 0.10,
+            "note": "QED corrections dominate, 1s electron velocity approaches c"
+          }
+        },
+        "beyond_qed_limit": {
+          "description": "Beyond QED limit, spontaneous pair creation regime",
+          "range": [173, 200],
+          "confidence": {
+            "electron_configuration": 0.10,
+            "atomic_radius": 0.10,
+            "electronegativity": 0.10,
+            "ionization_energy": 0.10,
+            "oxidation_states": 0.10,
+            "half_life": 0.00,
+            "note": "Not viable as neutral atoms, spontaneous e+e- pair creation"
+          }
+        }
+      },
+      "property_modifiers": {
+        "electron_configuration": {
+          "description": "Additional confidence modifiers for electron configuration",
+          "model_agreement_bonus": 0.05,
+          "model_disagreement_penalty": -0.10,
+          "experimental_override": 1.0
+        },
+        "half_life": {
+          "description": "Half-life predictions are highly uncertain for superheavy elements",
+          "island_of_stability_bonus": 0.10,
+          "far_from_magic_numbers_penalty": -0.15
+        }
+      }
+    },
+
+    "conservative": {
+      "description": "Conservative confidence profile with lower scores for theoretical predictions",
+      "z_ranges": {
+        "observed": {
+          "range": [1, 118],
+          "confidence": {
+            "electron_configuration": 1.0,
+            "atomic_radius": 0.90,
+            "electronegativity": 0.90,
+            "ionization_energy": 0.90,
+            "oxidation_states": 0.85,
+            "half_life": 0.85,
+            "note": "Conservative scoring even for observed elements"
+          }
+        },
+        "synthesis_active": {
+          "range": [119, 120],
+          "confidence": {
+            "electron_configuration": 0.70,
+            "atomic_radius": 0.45,
+            "electronegativity": 0.40,
+            "ionization_energy": 0.45,
+            "oxidation_states": 0.55,
+            "half_life": 0.35,
+            "note": "More skeptical of theoretical predictions"
+          }
+        },
+        "island_of_stability": {
+          "range": [121, 126],
+          "confidence": {
+            "electron_configuration": 0.60,
+            "atomic_radius": 0.35,
+            "electronegativity": 0.30,
+            "ionization_energy": 0.35,
+            "oxidation_states": 0.45,
+            "half_life": 0.25,
+            "note": "Island of stability may not exist as predicted"
+          }
+        },
+        "extended_period_8": {
+          "range": [127, 137],
+          "confidence": {
+            "electron_configuration": 0.40,
+            "atomic_radius": 0.25,
+            "electronegativity": 0.20,
+            "ionization_energy": 0.25,
+            "oxidation_states": 0.30,
+            "half_life": 0.15,
+            "note": "High skepticism for extended predictions"
+          }
+        },
+        "supercritical": {
+          "range": [138, 172],
+          "confidence": {
+            "electron_configuration": 0.20,
+            "atomic_radius": 0.15,
+            "electronegativity": 0.10,
+            "ionization_energy": 0.15,
+            "oxidation_states": 0.20,
+            "half_life": 0.05,
+            "note": "Very low confidence in supercritical regime"
+          }
+        },
+        "beyond_qed_limit": {
+          "range": [173, 200],
+          "confidence": {
+            "electron_configuration": 0.05,
+            "atomic_radius": 0.05,
+            "electronegativity": 0.05,
+            "ionization_energy": 0.05,
+            "oxidation_states": 0.05,
+            "half_life": 0.00,
+            "note": "Extremely low confidence"
+          }
+        }
+      }
+    },
+
+    "optimistic": {
+      "description": "Optimistic confidence profile assuming theoretical models are accurate",
+      "z_ranges": {
+        "observed": {
+          "range": [1, 118],
+          "confidence": {
+            "electron_configuration": 1.0,
+            "atomic_radius": 0.98,
+            "electronegativity": 0.98,
+            "ionization_energy": 0.98,
+            "oxidation_states": 0.95,
+            "half_life": 0.95,
+            "note": "High confidence in experimental data"
+          }
+        },
+        "synthesis_active": {
+          "range": [119, 120],
+          "confidence": {
+            "electron_configuration": 0.90,
+            "atomic_radius": 0.70,
+            "electronegativity": 0.65,
+            "ionization_energy": 0.70,
+            "oxidation_states": 0.80,
+            "half_life": 0.60,
+            "note": "Optimistic about near-term theoretical predictions"
+          }
+        },
+        "island_of_stability": {
+          "range": [121, 126],
+          "confidence": {
+            "electron_configuration": 0.85,
+            "atomic_radius": 0.60,
+            "electronegativity": 0.55,
+            "ionization_energy": 0.60,
+            "oxidation_states": 0.70,
+            "half_life": 0.55,
+            "note": "Optimistic about island of stability"
+          }
+        },
+        "extended_period_8": {
+          "range": [127, 137],
+          "confidence": {
+            "electron_configuration": 0.65,
+            "atomic_radius": 0.50,
+            "electronegativity": 0.45,
+            "ionization_energy": 0.50,
+            "oxidation_states": 0.55,
+            "half_life": 0.35,
+            "note": "Moderate confidence in extended predictions"
+          }
+        },
+        "supercritical": {
+          "range": [138, 172],
+          "confidence": {
+            "electron_configuration": 0.40,
+            "atomic_radius": 0.35,
+            "electronegativity": 0.30,
+            "ionization_energy": 0.35,
+            "oxidation_states": 0.40,
+            "half_life": 0.15,
+            "note": "Some confidence even in supercritical regime"
+          }
+        },
+        "beyond_qed_limit": {
+          "range": [173, 200],
+          "confidence": {
+            "electron_configuration": 0.15,
+            "atomic_radius": 0.15,
+            "electronegativity": 0.15,
+            "ionization_energy": 0.15,
+            "oxidation_states": 0.15,
+            "half_life": 0.00,
+            "note": "Minimal confidence beyond physical limit"
+          }
+        }
+      }
+    }
+  },
+
+  "usage_notes": {
+    "selecting_profile": "Choose profile based on application: 'default' for general use, 'conservative' for critical applications, 'optimistic' for exploratory research",
+    "updating_ranges": "As new experimental data or theoretical models become available, adjust these ranges without modifying code",
+    "custom_profiles": "Users can define custom profiles by copying a base profile and adjusting confidence values",
+    "property_specific": "Different properties have different confidence levels - electron configs are more certain than half-lives",
+    "version_control": "Track profile versions in git to document how confidence assessments evolve over time"
+  }
+}

@@ -44,3 +44,6 @@ Thumbs.db
 
 # Obsidian stuff
 docs/.obsidian/
+
+# Arxiv material
+docs/Technical-Report/

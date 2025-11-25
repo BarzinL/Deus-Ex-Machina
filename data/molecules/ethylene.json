@@ -1,0 +1,36 @@
+{
+  "name": "Ethylene (Ethene)",
+  "formula": "C2H4",
+  "atoms": [
+    {"index": 0, "element": "C"},
+    {"index": 1, "element": "C"},
+    {"index": 2, "element": "H"},
+    {"index": 3, "element": "H"},
+    {"index": 4, "element": "H"},
+    {"index": 5, "element": "H"}
+  ],
+  "bonds": [
+    [0, 1, 2],
+    [0, 2, 1],
+    [0, 3, 1],
+    [1, 4, 1],
+    [1, 5, 1]
+  ],
+  "energies": {
+    "actual_bond_energy": 2275,
+    "comment": "Simple C=C double bond + 4 C-H bonds. Should decompose cleanly - no cycles, no resonance. Small deviation (~1-2%) expected from measurement uncertainty. Naive: 602 + 4×413 = 2254, actual ~2275 (0.9% deviation).",
+    "source": "Standard values from thermochemistry databases"
+  },
+  "reference_energies": {
+    "C=C_double": 602,
+    "C-H": 413,
+    "comment": "Standard bond energies (kJ/mol)"
+  },
+  "notes": [
+    "Ethylene: simplest alkene with C=C double bond",
+    "No cycles, no resonance, no special structure",
+    "Should show near-zero violation (additivity should work)",
+    "Control case: tests that detector doesn't overfit",
+    "π-bond is localized between two carbons (not delocalized like benzene)"
+  ]
+}

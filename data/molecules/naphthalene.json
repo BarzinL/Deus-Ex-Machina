@@ -1,0 +1,64 @@
+{
+  "name": "Naphthalene",
+  "formula": "C10H8",
+  "atoms": [
+    {"index": 0, "element": "C"},
+    {"index": 1, "element": "C"},
+    {"index": 2, "element": "C"},
+    {"index": 3, "element": "C"},
+    {"index": 4, "element": "C"},
+    {"index": 5, "element": "C"},
+    {"index": 6, "element": "C"},
+    {"index": 7, "element": "C"},
+    {"index": 8, "element": "C"},
+    {"index": 9, "element": "C"},
+    {"index": 10, "element": "H"},
+    {"index": 11, "element": "H"},
+    {"index": 12, "element": "H"},
+    {"index": 13, "element": "H"},
+    {"index": 14, "element": "H"},
+    {"index": 15, "element": "H"},
+    {"index": 16, "element": "H"},
+    {"index": 17, "element": "H"}
+  ],
+  "bonds": [
+    [0, 1, 1.5],
+    [1, 2, 1.5],
+    [2, 3, 1.5],
+    [3, 4, 1.5],
+    [4, 5, 1.5],
+    [5, 0, 1.5],
+    [2, 6, 1.5],
+    [6, 7, 1.5],
+    [7, 8, 1.5],
+    [8, 9, 1.5],
+    [9, 3, 1.5],
+    [0, 10, 1],
+    [1, 11, 1],
+    [4, 12, 1],
+    [5, 13, 1],
+    [6, 14, 1],
+    [7, 15, 1],
+    [8, 16, 1],
+    [9, 17, 1]
+  ],
+  "energies": {
+    "actual_bond_energy": 8900,
+    "comment": "Two fused aromatic rings. Resonance energy ~255 kJ/mol (1.7× benzene, not 2×). Naive (localized cyclohexatriene×2): ~8645 kJ/mol. Actual (with aromatic stabilization): ~8900 kJ/mol. Tests whether aromatic stabilization scales linearly or shows diminishing returns.",
+    "source": "Experimental thermochemistry data + aromatic stabilization"
+  },
+  "reference_energies": {
+    "C-C_single": 346,
+    "C=C_double": 602,
+    "C-H": 413,
+    "comment": "Standard bond energies for naive calculation"
+  },
+  "notes": [
+    "Naphthalene: two fused benzene rings",
+    "10 π-electrons → follows Hückel's rule (4n+2, n=2)",
+    "Resonance energy ~255 kJ/mol vs. benzene's ~150 kJ/mol",
+    "NOT 2× benzene → aromatic stabilization doesn't scale linearly!",
+    "Tests: does ring fusion create new patterns?",
+    "Ring fusion creates additional constraints - central C-C bond shared"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Cyclohexane",
+  "formula": "C6H12",
+  "atoms": [
+    {"index": 0, "element": "C"},
+    {"index": 1, "element": "C"},
+    {"index": 2, "element": "C"},
+    {"index": 3, "element": "C"},
+    {"index": 4, "element": "C"},
+    {"index": 5, "element": "C"},
+    {"index": 6, "element": "H"},
+    {"index": 7, "element": "H"},
+    {"index": 8, "element": "H"},
+    {"index": 9, "element": "H"},
+    {"index": 10, "element": "H"},
+    {"index": 11, "element": "H"},
+    {"index": 12, "element": "H"},
+    {"index": 13, "element": "H"},
+    {"index": 14, "element": "H"},
+    {"index": 15, "element": "H"},
+    {"index": 16, "element": "H"},
+    {"index": 17, "element": "H"}
+  ],
+  "bonds": [
+    [0, 1, 1],
+    [1, 2, 1],
+    [2, 3, 1],
+    [3, 4, 1],
+    [4, 5, 1],
+    [5, 0, 1],
+    [0, 6, 1],
+    [0, 7, 1],
+    [1, 8, 1],
+    [1, 9, 1],
+    [2, 10, 1],
+    [2, 11, 1],
+    [3, 12, 1],
+    [3, 13, 1],
+    [4, 14, 1],
+    [4, 15, 1],
+    [5, 16, 1],
+    [5, 17, 1]
+  ],
+  "energies": {
+    "actual_bond_energy": 7055,
+    "comment": "Saturated 6-membered ring. Chair conformation has minimal angle strain (~0-2 kJ/mol) but still has geometric correlation. Tests whether cycles amplify correlation even WITHOUT π-conjugation. Predicted violation: +20 to +50 kJ/mol from pure geometric feedback (atoms constrained in cycle). Much less than benzene (+148) or naphthalene (+254), but potentially more than acyclic hexane would show.",
+    "source": "Experimental thermochemistry, chair conformation",
+    "confidence": 0.95
+  },
+  "reference_energies": {
+    "C-C_single": 346,
+    "C-H": 413,
+    "comment": "Standard bond energies (kJ/mol) for naive calculation. Naive = 6(C-C) + 12(C-H) = 6(346) + 12(413) = 7032 kJ/mol"
+  },
+  "notes": [
+    "Cyclohexane is saturated (no π-electrons, no conjugation)",
+    "Chair conformation minimizes angle and torsional strain",
+    "Still forms a CYCLE - geometric constraints create correlation",
+    "Tests: Can geometric cycles alone amplify additivity violations?",
+    "Predicted violation: +20 to +50 kJ/mol (geometric correlation only)",
+    "Compare to benzene (+148, geometric + electronic) and hexatriene (+43, electronic only)",
+    "If violation is significant, suggests feedback loops work for ANY correlated cycle",
+    "If violation is minimal, suggests π-conjugation is necessary for amplification",
+    "This helps distinguish geometric vs electronic contributions to feedback"
+  ]
+}

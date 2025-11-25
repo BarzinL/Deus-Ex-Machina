@@ -1,0 +1,47 @@
+{
+  "name": "Cyclobutadiene",
+  "formula": "C4H4",
+  "atoms": [
+    {"index": 0, "element": "C"},
+    {"index": 1, "element": "C"},
+    {"index": 2, "element": "C"},
+    {"index": 3, "element": "C"},
+    {"index": 4, "element": "H"},
+    {"index": 5, "element": "H"},
+    {"index": 6, "element": "H"},
+    {"index": 7, "element": "H"}
+  ],
+  "bonds": [
+    [0, 1, 1.5],
+    [1, 2, 1.5],
+    [2, 3, 1.5],
+    [3, 0, 1.5],
+    [0, 4, 1],
+    [1, 5, 1],
+    [2, 6, 1],
+    [3, 7, 1]
+  ],
+  "energies": {
+    "actual_bond_energy": 3350,
+    "comment": "ANTIAROMATIC - 4 π-electrons (4n, n=1) creates destructive interference. Highly unstable, only isolated in matrix at 8K or as metal complex. Total destabilization ~200 kJ/mol from: (1) ring strain (~110 kJ/mol, less than cyclopropane), (2) antiaromatic destabilization (~90 kJ/mol from destructive π-interference). Bonds are WEAKER than naive prediction. CRITICAL TEST: If feedback loop hypothesis is correct, this should show large NEGATIVE violation similar in magnitude to benzene's positive violation.",
+    "source": "DFT calculations and experimental matrix isolation studies",
+    "confidence": 0.7,
+    "confidence_note": "Lower confidence because cyclobutadiene is extremely reactive. Values from computational chemistry and low-temperature matrix isolation."
+  },
+  "reference_energies": {
+    "C-C_single": 346,
+    "C=C_double": 602,
+    "C-H": 413,
+    "comment": "Standard bond energies (kJ/mol) for naive calculation. Naive = 2(C=C) + 2(C-C) + 4(C-H) = 2(602) + 2(346) + 4(413) = 3548 kJ/mol"
+  },
+  "notes": [
+    "Cyclobutadiene is THE canonical example of antiaromatic destabilization",
+    "4 π-electrons violates Hückel's 4n+2 rule (this is 4n where n=1)",
+    "Extremely reactive - dimerizes instantly at room temperature",
+    "Only stable at 8K in inert gas matrix or as metal-coordinated complex",
+    "Predicted violation: -150 to -200 kJ/mol (destructive interference in feedback loop)",
+    "If feedback loop hypothesis is correct: same mechanism as benzene but OPPOSITE SIGN",
+    "Bond orders shown as 1.5 represent delocalized but antiaromatic system",
+    "This tests whether cycles create correlation feedback that can be constructive OR destructive"
+  ]
+}

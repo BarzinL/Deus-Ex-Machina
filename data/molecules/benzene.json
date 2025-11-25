@@ -1,0 +1,49 @@
+{
+  "name": "Benzene",
+  "formula": "C6H6",
+  "atoms": [
+    {"index": 0, "element": "C"},
+    {"index": 1, "element": "C"},
+    {"index": 2, "element": "C"},
+    {"index": 3, "element": "C"},
+    {"index": 4, "element": "C"},
+    {"index": 5, "element": "C"},
+    {"index": 6, "element": "H"},
+    {"index": 7, "element": "H"},
+    {"index": 8, "element": "H"},
+    {"index": 9, "element": "H"},
+    {"index": 10, "element": "H"},
+    {"index": 11, "element": "H"}
+  ],
+  "bonds": [
+    [0, 1, 1.5],
+    [1, 2, 1.5],
+    [2, 3, 1.5],
+    [3, 4, 1.5],
+    [4, 5, 1.5],
+    [5, 0, 1.5],
+    [0, 6, 1],
+    [1, 7, 1],
+    [2, 8, 1],
+    [3, 9, 1],
+    [4, 10, 1],
+    [5, 11, 1]
+  ],
+  "energies": {
+    "actual_bond_energy": 5470,
+    "comment": "Total bond energy from experimental data (kJ/mol). Benzene has aromatic stabilization making bonds STRONGER than localized structure. Naive (3 single + 3 double + 6 CH) = 5322 kJ/mol. Actual is ~150 kJ/mol higher due to resonance strengthening all C-C bonds.",
+    "source": "Calculated from aromatic bond strength"
+  },
+  "reference_energies": {
+    "C-C_single": 346,
+    "C=C_double": 602,
+    "C-H": 413,
+    "comment": "Standard bond energies (kJ/mol) for naive calculation"
+  },
+  "notes": [
+    "Benzene exhibits aromatic stabilization (~150 kJ/mol resonance energy)",
+    "Bond orders shown as 1.5 to represent delocalized π-system",
+    "Naive prediction would use localized single/double bonds",
+    "This is THE canonical example of additivity violation in chemistry"
+  ]
+}

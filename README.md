@@ -203,7 +203,7 @@ python tests/validate_comprehensive.py
 This software is available under a dual-licensing model:
 
 ### Open Source License (AGPLv3)
-Free for non-commercial, open-source, and research use. "f*** the system, blow the whole thing up" - this software is very copyleft and very free. Derivative works must also be open-sourced under AGPLv3.
+Free for non-commercial, open-source, and research use. This software is very copyleft and very free. Derivative works must also be open-sourced under AGPLv3.
 
 ### Commercial License
 Want to use this in proprietary software or keep your modifications closed-source? That requires a commercial license. If you're making money off this work, I deserve a cut.

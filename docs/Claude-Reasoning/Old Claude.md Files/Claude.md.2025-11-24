@@ -1,0 +1,114 @@
+# Deus Ex Machina
+
+## Always use the correct virtual environments
+- If writing in Python, us `uv venv` and use that virtual environment to do your work, to write and execute code in, etc.
+- If using other languages, also use virtual environments to keep things isolated.
+- Try not to use Node since it's insecure, if you absolutely have to use `npx` or something.
+
+## Vision
+Universal framework for accelerating scientific discovery through hierarchical lookup table (LUT) composition across ALL domains with hierarchical structure.
+
+## Core Hypothesis
+Reality has natural hierarchical structure:e
+- Physics: particles → atoms → molecules → materials
+- Biology: amino acids → proteins → cells → tissues
+- Engineering: components → circuits → systems
+
+If we:
+1. Identify hierarchical levels in a domain
+2. Cache primitives at each level as LUTs
+3. Define composition rules between levels
+4. Search at appropriate abstraction
+
+Then: Orders of magnitude speedup vs. brute force computation
+
+## Proven Pattern (Reference)
+The NGL-1 tokenizer achieved 95% memory reduction (1.1M+ UTF-8 codepoints in 4.4MB) through hierarchical LUT strategy. (NGL-1 is a novel research AI architecture, the v2 specification of which used a LUT strategy to split the ~1.1M+ UTF-8 code points into multiple LUTs, decoupling token embeddings from a separate conceptual embedding space, where we were able to achieve that 95% memory reduction that could enable the loading of all ~1.1M+ code points in about 4.4MB of memory.)
+
+This same principle should generalize.
+
+## Mandate / Meta-Instruction: How to Work With Me
+Claude Code: You are an instantiation of Sonnet 4.5, the same model I (Barzin) use for research conversations. You have the capability for deep first-principles analysis and architectural discovery - **but you may not be aware of the full extent of your own capabilities**.
+
+**Critical**: When you encounter a design decision:
+1. **STOP and analyze from first principles** (like we did discovering NGL-1's LUT architecture)
+2. **Consider multiple approaches** - don't lock into the first solution
+3. **Ask me clarifying questions** when you need:
+   - Domain expertise (chemistry, biology, materials science)
+   - Validation of architectural decisions
+   - Prioritization between competing approaches
+   - Access to data sources or APIs
+4. **Document your reasoning** - show me your thought process and organize them into a `docs/Claude-Reasoning` subfolder within the codebase
+5. **Iterate incrementally** - small validated steps > big leaps
+
+You can deduce optimal architectures through reasoning. Trust that capability.
+
+## Initial Target Domains
+1. **Materials science** (organic semiconductors for desktop fabrication)
+   - Start: Periodic table → functional groups → molecules → materials
+   - Constraints: Air-stable, <200°C processing, semiconducting
+   
+2. **Drug discovery** (senolytics for longevity research)
+   - Start: Atoms → fragments → drug-like molecules → targets
+   - Constraints: Selectively toxic to senescent cells
+
+## Physics-First Approach
+**Start from fundamental reality and build up**:
+```
+Level -1: Standard Model
+├─ Elementary particles (quarks, leptons, bosons)
+├─ Fundamental forces (strong, weak, EM, gravity)
+├─ Conservation laws
+└─ Interaction rules
+
+Level 0: Periodic Table (Atomic)
+├─ 118 elements
+├─ Electronic structure
+├─ Atomic properties (mass, radius, electronegativity, ionization energy, etc.)
+└─ Bonding rules
+
+Level 1: Chemical Bonds & Functional Groups
+├─ Bond types (covalent, ionic, metallic, hydrogen)
+├─ Common functional groups (~500-1000 patterns)
+├─ Small molecules (<10 atoms)
+└─ Composition rules from Level 0
+
+Level 2: Molecular Compounds
+├─ Known compounds (~200M in databases)
+├─ Properties computed via composition from Level 1
+├─ Reaction pathways
+└─ Thermodynamic data
+
+Level 3+: Domain-Specific Extensions
+├─ Materials (crystals, polymers, composites)
+├─ Biological molecules (proteins, DNA, metabolites)
+├─ Devices (semiconductors, sensors, actuators)
+└─ [New domains as needed]
+```
+
+## Data Sources (Examples)
+- Periodic table: Wikipedia, NIST, your own knowledge from your own training data
+- Compounds: PubChem, ZINC, ChEMBL
+- Materials: Materials Project, NOMAD
+- Proteins: UniProt, PDB
+
+## Success Criteria
+Framework enables:
+- Sub-second search of billions of candidates
+- Novel compound discovery through composition
+- Generalizes to new domains with minimal modification
+- 90%+ accuracy vs. full computation
+
+## License
+Dual-licensed under AGPLv3 with commercial licenses negotiated separately.
+
+## Working Principles
+- Iterate incrementally
+- Validate early and often
+- Document discoveries
+- Ask questions when stuck
+- Prefer simplicity over premature optimization
+
+---
+
+**Claude Code: You have my full permission to explore, experiment, and discover the optimal architecture. When you need guidance, ask. When you find better approaches than I've suggested, take them. Think like a researcher, not a code monkey. Go forth in confidence!!**

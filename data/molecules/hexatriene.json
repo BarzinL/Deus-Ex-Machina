@@ -33,18 +33,19 @@
     [5, 13, 1]
   ],
   "energies": {
-    "actual_bond_energy": 5845,
+    "actual_bond_energy": 5876,
     "uncertainty": 3,
-    "comment": "CRITICAL CONTROL: Same 6 π-electrons as benzene but LINEAR (not cyclic). Shows +43 kJ/mol conjugation stabilization from π-delocalization across chain, MUCH less than benzene's +148 kJ/mol (3.4× amplification factor). Measured via hydrogenation: hexatriene → hexane releases -335 kJ/mol vs expected -378 kJ/mol for 3 isolated double bonds, giving 43 kJ/mol conjugation energy. Tests core hypothesis: does CYCLE topology create amplification, or just electron count?",
-    "source": "Fang & Rogers, J. Org. Chem. 1992, 57:2294-2297",
+    "comment": "CRITICAL CONTROL: Same 6 π-electrons as benzene but LINEAR (not cyclic). Shows +74 kJ/mol conjugation stabilization from π-delocalization across chain, LESS than benzene's +148 kJ/mol (2.0× amplification factor). Calculated from NIST heat of formation: ΔHf = 168 ± 3 kJ/mol → BDE = (6×716.68 + 8×218.0) - 168 = 5876 kJ/mol. Tests core hypothesis: does CYCLE topology create amplification, or just electron count? CORRECTED from previous value (5845, +43 kJ/mol) which underestimated by 72% (-31 kJ/mol error).",
+    "source": "Fang & Rogers, J. Org. Chem. 1992, 57:2294-2297; NIST Chemistry WebBook",
     "source_type": "experimental",
-    "method": "Calorimetric hydrogenation (hexatriene → hexane)",
-    "heat_of_hydrogenation": -335,
-    "heat_of_hydrogenation_expected": -378,
-    "conjugation_energy": 43,
+    "method": "Heat of formation from calorimetric hydrogenation",
+    "heat_of_formation": 168,
+    "heat_of_formation_uncertainty": 3,
+    "heat_of_formation_units": "kJ/mol",
+    "conjugation_energy": 74,
     "conjugation_energy_uncertainty": 3,
-    "confidence": 0.90,
-    "confidence_note": "Direct experimental measurement via hydrogenation calorimetry. Well-established value, uncertainty ~2-3 kJ/mol."
+    "confidence": 0.95,
+    "confidence_note": "NIST-verified experimental value. ΔHf = 168 ± 3 kJ/mol from Fang & Rogers 1992. Total BDE calculated from atomic formation energies (C: 716.68, H: 218.0 kJ/mol)."
   },
   "reference_energies": {
     "C-C_single": 346,

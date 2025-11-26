@@ -34,9 +34,17 @@
   ],
   "energies": {
     "actual_bond_energy": 5845,
-    "comment": "CRITICAL CONTROL: Same 6 π-electrons as benzene but LINEAR (not cyclic). Shows conjugation stabilization (~43 kJ/mol) from π-delocalization across chain, but MUCH less than benzene's ~148 kJ/mol. This tests the core hypothesis: does the CYCLE create the amplification, or is it just about electron count? If feedback loop hypothesis is correct, hexatriene should show 3-4× LESS violation than benzene despite identical π-electron count.",
-    "source": "Experimental conjugation energy from spectroscopy",
-    "confidence": 0.9
+    "uncertainty": 3,
+    "comment": "CRITICAL CONTROL: Same 6 π-electrons as benzene but LINEAR (not cyclic). Shows +43 kJ/mol conjugation stabilization from π-delocalization across chain, MUCH less than benzene's +148 kJ/mol (3.4× amplification factor). Measured via hydrogenation: hexatriene → hexane releases -335 kJ/mol vs expected -378 kJ/mol for 3 isolated double bonds, giving 43 kJ/mol conjugation energy. Tests core hypothesis: does CYCLE topology create amplification, or just electron count?",
+    "source": "Fang & Rogers, J. Org. Chem. 1992, 57:2294-2297",
+    "source_type": "experimental",
+    "method": "Calorimetric hydrogenation (hexatriene → hexane)",
+    "heat_of_hydrogenation": -335,
+    "heat_of_hydrogenation_expected": -378,
+    "conjugation_energy": 43,
+    "conjugation_energy_uncertainty": 3,
+    "confidence": 0.90,
+    "confidence_note": "Direct experimental measurement via hydrogenation calorimetry. Well-established value, uncertainty ~2-3 kJ/mol."
   },
   "reference_energies": {
     "C-C_single": 346,

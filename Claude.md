@@ -83,6 +83,21 @@ abstraction:
   status: "hypothesis / validated / refuted"
 ```
 
+### Numerical Values Protocol
+
+**For any quantitative claim (energies, temperatures, distances, rates, etc.):**
+
+1. **NEVER generate a numerical value from pattern-matching.** If you don't have a verified source, write `[VALUE NEEDED - source required]` instead of a plausible-sounding number.
+
+2. **Before writing ANY number**, ask:
+   - Do I have a specific citation for this exact value?
+   - Can I link to the primary source (NIST, journal article, database)?
+   - If not, this value must be marked as `[UNVERIFIED]` or left blank.
+
+3. **Plausible ≠ Verified.** The fact that a number "sounds right" or "matches expectations" is not evidence. LLMs are optimized to generate plausible-sounding content.
+
+4. **Control cases first.** Before analyzing complex molecules, verify simple cases where the answer is theoretically known (e.g., ethylene should have ~0 violation). If control cases fail, stop and investigate.
+
 ---
 
 ## Related Project: NGL-1

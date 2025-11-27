@@ -17,9 +17,19 @@
     [1, 5, 1]
   ],
   "energies": {
-    "actual_bond_energy": 2275,
-    "comment": "Simple C=C double bond + 4 C-H bonds. Should decompose cleanly - no cycles, no resonance. Small deviation (~1-2%) expected from measurement uncertainty. Naive: 602 + 4×413 = 2254, actual ~2275 (0.9% deviation).",
-    "source": "Standard values from thermochemistry databases"
+    "actual_bond_energy": 2253,
+    "uncertainty": 0.5,
+    "comment": "CONTROL CASE: Simple C=C double bond + 4 C-H bonds with NO cycles, NO conjugation, NO resonance. Violation is -1.0 ± 0.5 kJ/mol (essentially ZERO within uncertainty). CONFIRMS additivity works perfectly for simple molecules as predicted. Calculated from NIST: ΔHf = 52.4 ± 0.5 kJ/mol → BDE = (2×716.68 + 4×218.0) - 52.4 = 2253 kJ/mol. CORRECTED from previous value (2275, +21 kJ/mol) which was fabricated (+22 kJ/mol error).",
+    "source": "Manion 2002 (citing Gurvich et al. 1991); NIST Chemistry WebBook",
+    "source_type": "experimental",
+    "method": "Review of experimental thermochemical data",
+    "heat_of_formation": 52.4,
+    "heat_of_formation_uncertainty": 0.5,
+    "heat_of_formation_units": "kJ/mol",
+    "violation": -1.0,
+    "violation_interpretation": "Essentially zero - additivity works",
+    "confidence": 0.98,
+    "confidence_note": "NIST-verified with tight uncertainty (±0.5 kJ/mol). Perfect control case - validates that additivity works for simple molecules."
   },
   "reference_energies": {
     "C=C_double": 602,
@@ -28,9 +38,12 @@
   },
   "notes": [
     "Ethylene: simplest alkene with C=C double bond",
-    "No cycles, no resonance, no special structure",
-    "Should show near-zero violation (additivity should work)",
-    "Control case: tests that detector doesn't overfit",
-    "π-bond is localized between two carbons (not delocalized like benzene)"
+    "No cycles, no resonance, no conjugation, no special structure",
+    "NIST-verified violation: -1.0 ± 0.5 kJ/mol (essentially ZERO) ✓",
+    "CONTROL CASE: Confirms additivity works perfectly when it should",
+    "Tests that detector doesn't overfit - simple molecules should decompose cleanly",
+    "π-bond is localized between two carbons (not delocalized like benzene)",
+    "Previous dataset value (+21 kJ/mol) was the ANOMALY that triggered systematic verification",
+    "Correcting this revealed fabrications in multiple other molecules"
   ]
 }

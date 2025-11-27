@@ -42,10 +42,19 @@
     [5, 17, 1]
   ],
   "energies": {
-    "actual_bond_energy": 7055,
-    "comment": "Saturated 6-membered ring. Chair conformation has minimal angle strain (~0-2 kJ/mol) but still has geometric correlation. Tests whether cycles amplify correlation even WITHOUT π-conjugation. Predicted violation: +20 to +50 kJ/mol from pure geometric feedback (atoms constrained in cycle). Much less than benzene (+148) or naphthalene (+254), but potentially more than acyclic hexane would show.",
-    "source": "Experimental thermochemistry, chair conformation",
-    "confidence": 0.95
+    "actual_bond_energy": 7039,
+    "uncertainty": 1,
+    "comment": "Saturated 6-membered ring in chair conformation. Shows +7.2 ± 1 kJ/mol violation - MINIMAL, confirming chair conformation has negligible strain as expected. Tests whether cycles amplify correlation WITHOUT π-conjugation. Answer: Geometric cycles alone show WEAK amplification compared to electronic conjugation (benzene: +148 kJ/mol is 20× larger). Calculated from NIST: ΔHf = -123.1 ± 0.79 kJ/mol → BDE = (6×716.68 + 12×218.0) - (-123.1) = 7039 kJ/mol. CORRECTED from previous value (7055, +23 kJ/mol) which overestimated by 220% (+16 kJ/mol error).",
+    "source": "Prosen et al., J. Res. NBS 1946, 37:51-56; NIST Chemistry WebBook",
+    "source_type": "experimental",
+    "method": "Combustion calorimetry",
+    "heat_of_formation": -123.1,
+    "heat_of_formation_uncertainty": 0.79,
+    "heat_of_formation_units": "kJ/mol",
+    "geometric_correlation": 7.2,
+    "geometric_correlation_uncertainty": 1,
+    "confidence": 0.95,
+    "confidence_note": "NIST-verified experimental value. Minimal violation confirms geometric cycles alone provide weak amplification. Electronic conjugation is necessary for strong feedback effects."
   },
   "reference_energies": {
     "C-C_single": 346,
@@ -56,11 +65,14 @@
     "Cyclohexane is saturated (no π-electrons, no conjugation)",
     "Chair conformation minimizes angle and torsional strain",
     "Still forms a CYCLE - geometric constraints create correlation",
-    "Tests: Can geometric cycles alone amplify additivity violations?",
-    "Predicted violation: +20 to +50 kJ/mol (geometric correlation only)",
-    "Compare to benzene (+148, geometric + electronic) and hexatriene (+43, electronic only)",
-    "If violation is significant, suggests feedback loops work for ANY correlated cycle",
-    "If violation is minimal, suggests π-conjugation is necessary for amplification",
-    "This helps distinguish geometric vs electronic contributions to feedback"
+    "NIST-verified violation: +7.2 ± 1 kJ/mol - MINIMAL as expected for chair conformation",
+    "Tests: Can geometric cycles alone amplify additivity violations? Answer: WEAKLY",
+    "Compare to benzene (+148, electronic + geometric) - 20× stronger!",
+    "Compare to hexatriene (+74, acyclic electronic) - 10× stronger!",
+    "Compare to butadiene (+38, acyclic electronic) - 5× stronger!",
+    "Conclusion: π-conjugation is NECESSARY for strong feedback amplification",
+    "Geometric cycles alone show minimal effect (+7 kJ/mol)",
+    "This distinguishes geometric vs electronic contributions clearly",
+    "Electronic correlation (π-electrons) >> Geometric correlation (ring constraints)"
   ]
 }

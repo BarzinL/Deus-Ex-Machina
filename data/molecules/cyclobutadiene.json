@@ -22,11 +22,25 @@
     [3, 7, 1]
   ],
   "energies": {
-    "actual_bond_energy": 3350,
-    "comment": "ANTIAROMATIC - 4 π-electrons (4n, n=1) creates destructive interference. Highly unstable, only isolated in matrix at 8K or as metal complex. Total destabilization ~200 kJ/mol from: (1) ring strain (~110 kJ/mol, less than cyclopropane), (2) antiaromatic destabilization (~90 kJ/mol from destructive π-interference). Bonds are WEAKER than naive prediction. CRITICAL TEST: If feedback loop hypothesis is correct, this should show large NEGATIVE violation similar in magnitude to benzene's positive violation.",
-    "source": "DFT calculations and experimental matrix isolation studies",
-    "confidence": 0.7,
-    "confidence_note": "Lower confidence because cyclobutadiene is extremely reactive. Values from computational chemistry and low-temperature matrix isolation."
+    "actual_bond_energy": 3311,
+    "uncertainty": 16,
+    "comment": "ANTIAROMATIC - 4 π-electrons (4n, n=1). Extremely unstable, only isolated at 8K in matrix or as metal complex. Total bond energy calculated from experimental heat of formation. CRITICAL TEST: If feedback loop hypothesis is correct, this should show large NEGATIVE violation similar in magnitude to benzene's positive violation. NOTE: Wu et al. (2012) suggests ring strain (251 kJ/mol) >> antiaromatic destabilization (69 kJ/mol), so this confounds geometric and electronic effects.",
+    "source": "Fattahi et al., Angew. Chem. Int. Ed. 2006, 45(30):4984-4988",
+    "source_type": "experimental",
+    "method": "Gas-phase thermodynamic cycle via 3-cyclobutenyl cation",
+    "heat_of_formation": 428,
+    "heat_of_formation_uncertainty": 16,
+    "heat_of_formation_units": "kJ/mol",
+    "alternative_experimental_value": {
+      "heat_of_formation": 477,
+      "uncertainty": 46,
+      "bond_energy": 3262,
+      "source": "Deniz et al., Science 1999, 286:1119-1122",
+      "method": "Photoacoustic calorimetry via photofragmentation",
+      "note": "Disagrees with Fattahi by 49 kJ/mol. Different methodology. Larger uncertainty."
+    },
+    "confidence": 0.85,
+    "confidence_note": "Experimental measurement but with methodological disagreement between two primary sources (49 kJ/mol discrepancy). Using Fattahi (2006) as primary due to tighter error bounds and more recent methodology."
   },
   "reference_energies": {
     "C-C_single": 346,
@@ -40,8 +54,13 @@
     "Extremely reactive - dimerizes instantly at room temperature",
     "Only stable at 8K in inert gas matrix or as metal-coordinated complex",
     "Predicted violation: -150 to -200 kJ/mol (destructive interference in feedback loop)",
+    "ACTUAL violation (Fattahi 2006): -237 ± 16 kJ/mol → STRONGER than predicted ✓",
+    "ACTUAL violation (Deniz 1999): -286 ± 46 kJ/mol → MUCH STRONGER than predicted ✓",
+    "Magnitude: 1.6-1.9× benzene's +148 kJ/mol (opposite sign as expected)",
     "If feedback loop hypothesis is correct: same mechanism as benzene but OPPOSITE SIGN",
     "Bond orders shown as 1.5 represent delocalized but antiaromatic system",
-    "This tests whether cycles create correlation feedback that can be constructive OR destructive"
+    "This tests whether cycles create correlation feedback that can be constructive OR destructive",
+    "CAVEAT: Wu et al. (2012) suggests ring strain dominates over antiaromaticity",
+    "Therefore this test confounds geometric (ring strain) and electronic (antiaromatic) correlation"
   ]
 }

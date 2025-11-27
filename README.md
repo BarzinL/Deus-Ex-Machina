@@ -22,11 +22,17 @@ Reality has natural hierarchical structure:
 
 Then: **Orders of magnitude speedup** vs. brute force computation.
 
-In a concise nutshell: The basic idea is that reality has a natural hierarchy that can be represented in a sparse way. At every scale, from the planck scale to the macro scale, stable systems "crystallize" into composable parts. When you identify these boundaries (where things like feedback loops or constraints create stability) and then cache them into lookup tables, that can empower you to transform search problems.
+### Explained accessibly:
 
-Instead of simulating every atom's interaction (which becomes an $O(N^k)$ time complexity in computational cost), instead we just compose pre-validated, stable primitives -- and because we only traverse physically/chemically valid branches of the tree, the combinatorial explosion is tamed at least somewhat, and this effectively reduces the discovery to a series of $O(N*k)$ time complexity lookups across those hierarchical levels.
+The basic idea is that reality has a natural hierarchy that can be represented in a sparse way.
 
-Paired with a smart querying program hooked into an LLM using it for tool-calling, you can create an inverse design funnel for whatever, where you just say *"find me a PCB design that has better heat dissipation than conventional FR-4 fiberglass PCBs"* and it will flip through its materials lookup table and find things with better heat resistance, and then chain those candidates into its manufacturing lookup table to find how to build it.
+For example: the periodic table of atomic elements has distinct properties. The standard model of elementary particles is made of discrete units. Molecular compounds are made of distinct subunits. So too are organisms made of organ systems, organs made of tissues, tissues of cells which are made of organelles, and so on. Even computer systems are made of components, subcomponents, and raw materials. This is an exploitable pattern.
+
+At every scale, from the planck scale to the macro scale, stable systems "crystallize" into composable parts. When you identify these boundaries (where things like feedback loops or constraints create stability) and then cache them into lookup tables, that can empower you to transform search problems.
+
+Rather than simulating every atom's interaction (which becomes an $O(N^k)$ time complexity in computational cost), we instead just compose pre-validated, stable primitives -- and because we only traverse physically/chemically valid branches of the tree, the combinatorial explosion is tamed at least somewhat, and this effectively reduces the discovery to a series of $O(N*k)$ time complexity lookups across those hierarchical levels.
+
+Paired with a smart querying program hooked into an LLM using it for tool-calling, you can create an inverse design funnel for whatever, where you just say *"find me a PCB design that has better heat dissipation than conventional FR-4 fiberglass PCBs"* and it will flip through its materials lookup table and find things with better heat dissipation, and then chain those candidates into its manufacturing lookup table to find how to build it.
 
 The ideal is to use this to transform search problems into inverse design funnels for any domain, from materials science to engineering. The hope is to push this into biology for disease treatment.
 

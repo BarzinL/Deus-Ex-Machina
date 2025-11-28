@@ -4,7 +4,7 @@
 
 [![License: Dual (AGPLv3/Commercial)](https://img.shields.io/badge/License-Dual%20(AGPLv3%2FCommercial)-blue.svg)](#license)
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
-
+[![DOI/Zenodo](https://zenodo.org/badge/DOI/10.5281/zenodo.17746013.svg)](https://doi.org/10.5281/zenodo.17746013)
 ---
 
 ## Vision
@@ -21,6 +21,12 @@ Reality has natural hierarchical structure:
 4. Search at appropriate abstraction
 
 Then: **Orders of magnitude speedup** vs. brute force computation.
+
+### The Architectural Pattern
+
+This project implements a software architecture designed to transform $O(N^k)$ search problems into $O(N \times k)$ lookup problems. By identifying "compositional boundaries"—points where a system crystallizes into a stable unit—we can cache complex structures as simple primitives.
+
+Key component: **The Crystallization Detector**. An algorithm that compares naive additive predictions against ground-truth data (experiment or simulation) to automatically identify stable abstractions (like aromatic rings) without hardcoded rules.
 
 ### Explained accessibly:
 
@@ -43,6 +49,15 @@ The ideal is to use this to transform search problems into inverse design funnel
 A private experiment on a machine learning model called NGL-1 used an innovative tokenizer which achieved **95% memory reduction** (1.1M+ UTF-8 codepoints in 4.4MB) through hierarchical LUT strategy, decoupling token embeddings from conceptual space.
 
 **This same principle should generalize across all domains with hierarchical structure.**
+
+---
+
+### Validation Status
+
+The framework has been validated on a benchmark set of chemical structures:
+- **Rediscovery of Aromaticity:** Automatically flagged Benzene as a "Must Cache" primitive due to its high stability violation (+148 kJ/mol).
+- **Control Cases:** Correctly identified Ethylene as an additive structure (~0 violation), confirming the system does not overfit.
+- **Diminishing Returns:** Detected non-linear scaling in fused ring systems (Naphthalene).
 
 ---
 
@@ -80,7 +95,7 @@ Level 3+: Domain-Specific Extensions
 └─ Devices (semiconductors, sensors, actuators)
 ```
 
-### Data Strategy
+### Current Data Strategy
 
 **Layer 0 (Theory)**: Pure Python functions - generative physics from first principles
 - `src/theory/quantum.py` - Electron configurations, valence electrons
@@ -97,33 +112,6 @@ Level 3+: Domain-Specific Extensions
 - Always overrides Layer 1 when available
 
 **Query path**: Layer 2 → Layer 1 → Layer 0 (fallback)
-
----
-
-## Current Status
-
-### Phase 1: Complete ✅
-
-**Electron configuration generator (Z=1-173)**:
-- Madelung rule implementation with 19 known exceptions
-- Handles Cr, Cu, Nb, Mo, Pd, Ag, La, Ce, Gd, Pt, Au, Ac, U, etc.
-- Noble gas core notation
-- Valence electron counting
-- 100% test coverage on 29 key elements
-
-**Features**:
-- Observed elements (Z=1-118): Experimentally validated
-- Island of stability (Z=119-126): Theoretical predictions
-- Supercritical regime (Z=127-172): QED corrections
-- Beyond QED limit (Z≥173): Physical impossibility flags
-
-### Phase 2: In Progress 🚧
-
-**ElementGenerator + ConfidenceScorer**:
-- Model orchestration (Pyykkö, Fricke, Nefedov)
-- Confidence scoring for theoretical predictions
-- Element status classification
-- Cache generation for Layer 1
 
 ---
 

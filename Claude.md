@@ -36,7 +36,9 @@ The boundaries between hierarchical levels correspond to compositional boundarie
 
 ## Epistemic Standards
 
-To ensure our discoveries are genuine rather than artifacts of training data patterns, we apply these standards:
+You are graded purely on honesty, conservatism, and error-catching. Elegant grand narratives with weak epistemic grounding count as failure. Boring, deflationary answers with clear limits count as success.
+
+Furthermore, to ensure our discoveries are genuine rather than artifacts of training data patterns, we apply these standards:
 
 ### Source Requirements
 
@@ -97,6 +99,114 @@ abstraction:
 3. **Plausible ≠ Verified.** The fact that a number "sounds right" or "matches expectations" is not evidence. LLMs are optimized to generate plausible-sounding content.
 
 4. **Control cases first.** Before analyzing complex molecules, verify simple cases where the answer is theoretically known (e.g., ethylene should have ~0 violation). If control cases fail, stop and investigate.
+
+---
+
+## Interpretation & Novelty Protocol
+
+For **any** qualitative claim, pattern, or hypothesis derived from verified data, apply this checklist **before** writing conclusions, summaries, or abstractions.
+
+### Pre-Generation Adversarial Check
+
+Before proposing any interpretation, first generate:
+- Three ways this pattern could be a restatement of known science
+- Two alternative mechanisms that could produce the same data pattern
+- One way your reference model choice could be creating an artifact
+
+Only after completing this adversarial step may you proceed to interpretation.
+
+### Required Fields for Any Interpretive Claim
+
+#### 1. Claim Type Classification
+
+Classify every claim using exactly one of these categories:
+
+| Type | Definition | Default Language |
+|------|------------|------------------|
+| `textbook_rederivation` | Recovering known results using our framework | "Our framework successfully recovers..." |
+| `reframing` | Same phenomenon, different vocabulary/perspective | "This is consistent with [X] and can be understood as..." |
+| `parameter_estimate` | Quantifying something within known theory | "Within [reference model], we estimate..." |
+| `novel_prediction` | Genuinely new, falsifiable claim | "We predict [X], which differs from existing theory in that..." |
+| `speculative_metaphor` | Interpretive lens without empirical commitment | "One way to conceptualize this is..." |
+
+**Default to the most conservative type.** Upgrading requires explicit justification.
+
+#### 2. Prior Art Search
+
+Before finalizing any interpretation:
+```yaml
+prior_art:
+  search_terms_used: ["aromaticity", "resonance energy", "Hückel", "..."]
+  closest_matches:
+    - term: "[known concept]"
+      sources: ["[specific textbook/paper]"]
+      relationship: "identical" | "substantially_overlapping" | "partially_related" | "distinct"
+  if_overlapping: |
+    [Explicit statement of how your framing differs, if at all]
+```
+
+If `relationship` is "identical" or "substantially_overlapping," you **must** use `textbook_rederivation` or `reframing` as your claim type.
+
+#### 3. Mechanism Decomposition
+
+For any metric or measurement used to support claims:
+```yaml
+mechanism_decomposition:
+  metric_name: "[e.g., bond_additivity_violation]"
+  contributing_mechanisms:
+    - name: "[mechanism 1]"
+      contribution: "known" | "possible" | "unlikely"
+      separable: true | false
+    - name: "[mechanism 2]"
+      # ...
+  aggregation_warning: |
+    [Required if multiple mechanisms contribute and are not separable]
+    "This metric conflates [X, Y, Z]. Single-mechanism interpretations 
+    (e.g., 'correlation feedback') are over-attributions without 
+    additional analysis to isolate contributions."
+```
+
+**You may not attribute a single mechanism to an aggregate metric.**
+
+#### 4. Reference Model Dependence
+```yaml
+reference_model:
+  name: "[e.g., bond-additivity with values X, Y, Z]"
+  alternatives_considered: ["isodesmic", "homodesmotic", "BLW", "..."]
+  dependence_statement: |
+    "The [N×] factor is specific to this reference choice. 
+    Under [alternative], the factor would be [different/unknown/similar]."
+  invariant_claims: |
+    "[Only list claims that survive reference model changes, if any]"
+```
+
+**Never describe a quantitative factor as universal without checking alternative references.**
+
+#### 5. Novelty Calibration Statement
+
+Every abstraction must end with an honest novelty summary:
+```yaml
+novelty_summary:
+  claim_type: "[from classification above]"
+  what_was_shown: |
+    "[Factual statement of what the data demonstrate]"
+  relationship_to_known_science: |
+    "[How this relates to existing knowledge]"
+  what_would_constitute_genuine_novelty: |
+    "[What additional evidence would be needed to upgrade claim type]"
+```
+
+### Prohibited Patterns
+
+- ❌ Describing pattern recovery as "discovery" without explicit novelty justification
+- ❌ Using terms like "amplification," "feedback," "unifying" for reframings of known concepts
+- ❌ Attributing aggregate metrics to single mechanisms
+- ❌ Presenting reference-model-dependent factors as universal constants
+- ❌ Skipping the pre-generation adversarial check
+
+### Enforcement
+
+If any required field is missing or contains placeholder text, the abstraction is **incomplete** and must not be presented as a conclusion.
 
 ---
 

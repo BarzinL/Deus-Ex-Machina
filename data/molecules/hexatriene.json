@@ -35,7 +35,7 @@
   "energies": {
     "actual_bond_energy": 5876,
     "uncertainty": 3,
-    "comment": "CRITICAL CONTROL: Same 6 π-electrons as benzene but LINEAR (not cyclic). Shows +74 kJ/mol conjugation stabilization from π-delocalization across chain, LESS than benzene's +148 kJ/mol (2.0× amplification factor). Calculated from NIST heat of formation: ΔHf = 168 ± 3 kJ/mol → BDE = (6×716.68 + 8×218.0) - 168 = 5876 kJ/mol. Tests core hypothesis: does CYCLE topology create amplification, or just electron count? CORRECTED from previous value (5845, +43 kJ/mol) which underestimated by 72% (-31 kJ/mol error).",
+    "comment": "CRITICAL CONTROL: Same 6 π-electrons as benzene but LINEAR (not cyclic). Shows +74 kJ/mol conjugation stabilization from π-delocalization across chain, LESS than benzene's +203 kJ/mol (2.7× ratio). Calculated from NIST heat of formation: ΔHf = 168 ± 3 kJ/mol → BDE = (6×716.68 + 8×218.0) - 168 = 5876 kJ/mol. Tests core hypothesis: does CYCLE topology create amplification, or just electron count? CORRECTED from previous value (5845, +43 kJ/mol) which underestimated by 72% (-31 kJ/mol error).",
     "source": "Fang & Rogers, J. Org. Chem. 1992, 57:2294-2297; NIST Chemistry WebBook",
     "source_type": "experimental",
     "method": "Heat of formation from calorimetric hydrogenation",
@@ -56,7 +56,7 @@
   "notes": [
     "1,3,5-Hexatriene has same number of π-electrons as benzene (6)",
     "Linear conjugated system, NOT cyclic",
-    "Predicted violation: +30 to +50 kJ/mol (vs benzene's +148 kJ/mol)",
+    "Predicted violation: +30 to +50 kJ/mol (vs benzene's +203 kJ/mol, corrected 2026-09-30)",
     "Tests whether cycle topology or electron count drives amplification",
     "Conjugation exists but correlation decays exponentially in linear chain",
     "No feedback loop: correlation flows A→B→C→D→E→F and dissipates",

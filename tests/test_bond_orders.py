@@ -5,8 +5,6 @@ This test demonstrates that bond order emerges from physics (valence, orbitals)
 rather than memorized bond tables.
 """
 
-import sys
-sys.path.insert(0, '/run/media/Barzin/SyncSpace-ext4/Codebases/Deus Ex Machina')
 
 from src.theory.generator import ElementGenerator
 from src.level1.bonding import BondingRules

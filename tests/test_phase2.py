@@ -2,8 +2,6 @@
 Test ElementGenerator and ConfidenceScorer (Phase 2).
 """
 
-import sys
-sys.path.insert(0, '/run/media/Barzin/SyncSpace-ext4/Codebases/Deus Ex Machina')
 
 from src.theory.generator import ElementGenerator
 from src.theory.confidence import ConfidenceScorer

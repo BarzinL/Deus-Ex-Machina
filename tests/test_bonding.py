@@ -2,8 +2,6 @@
 Test bonding rules (Level 0 → Level 1 composition).
 """
 
-import sys
-sys.path.insert(0, '/run/media/Barzin/SyncSpace-ext4/Codebases/Deus Ex Machina')
 
 import time
 from src.theory.generator import ElementGenerator

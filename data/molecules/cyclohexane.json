@@ -44,7 +44,7 @@
   "energies": {
     "actual_bond_energy": 7039,
     "uncertainty": 1,
-    "comment": "Saturated 6-membered ring in chair conformation. Shows +7.2 ± 1 kJ/mol violation - MINIMAL, confirming chair conformation has negligible strain as expected. Tests whether cycles amplify correlation WITHOUT π-conjugation. Answer: Geometric cycles alone show WEAK amplification compared to electronic conjugation (benzene: +148 kJ/mol is 20× larger). Calculated from NIST: ΔHf = -123.1 ± 0.79 kJ/mol → BDE = (6×716.68 + 12×218.0) - (-123.1) = 7039 kJ/mol. CORRECTED from previous value (7055, +23 kJ/mol) which overestimated by 220% (+16 kJ/mol error).",
+    "comment": "Saturated 6-membered ring in chair conformation. Shows +7.2 ± 1 kJ/mol violation - MINIMAL, confirming chair conformation has negligible strain as expected. Tests whether cycles amplify correlation WITHOUT π-conjugation. Answer: Geometric cycles alone show WEAK amplification compared to electronic conjugation (benzene: +203 kJ/mol is 28× larger). Calculated from NIST: ΔHf = -123.1 ± 0.79 kJ/mol → BDE = (6×716.68 + 12×218.0) - (-123.1) = 7039 kJ/mol. CORRECTED from previous value (7055, +23 kJ/mol) which overestimated by 220% (+16 kJ/mol error).",
     "source": "Prosen et al., J. Res. NBS 1946, 37:51-56; NIST Chemistry WebBook",
     "source_type": "experimental",
     "method": "Combustion calorimetry",
@@ -67,7 +67,7 @@
     "Still forms a CYCLE - geometric constraints create correlation",
     "NIST-verified violation: +7.2 ± 1 kJ/mol - MINIMAL as expected for chair conformation",
     "Tests: Can geometric cycles alone amplify additivity violations? Answer: WEAKLY",
-    "Compare to benzene (+148, electronic + geometric) - 20× stronger!",
+    "Compare to benzene (+203, electronic + geometric) - 28× stronger!",
     "Compare to hexatriene (+74, acyclic electronic) - 10× stronger!",
     "Compare to butadiene (+38, acyclic electronic) - 5× stronger!",
     "Conclusion: π-conjugation is NECESSARY for strong feedback amplification",

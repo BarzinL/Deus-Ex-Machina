@@ -2,13 +2,11 @@
 Test electron configuration generator against known elements.
 """
 
-import sys
-sys.path.insert(0, '/run/media/Barzin/SyncSpace-ext4/Codebases/Deus Ex Machina')
 
 from src.theory.quantum import madelung_rule, count_valence, orbital_type
 
 
-def test_element(Z: int, name: str, expected_config: str, expected_valence: int, expected_block: str):
+def check_element(Z: int, name: str, expected_config: str, expected_valence: int, expected_block: str):
     """Test a single element against expected values."""
     print(f"\n{'='*60}")
     print(f"Testing {name} (Z={Z})")
@@ -51,7 +49,7 @@ def main():
     results = []
 
     # Test 1: Hydrogen (simplest)
-    results.append(test_element(
+    results.append(check_element(
         Z=1,
         name="Hydrogen",
         expected_config="1s1",
@@ -60,7 +58,7 @@ def main():
     ))
 
     # Test 2: Carbon (biologically important, p-block)
-    results.append(test_element(
+    results.append(check_element(
         Z=6,
         name="Carbon",
         expected_config="[He] 2s2 2p2",
@@ -69,7 +67,7 @@ def main():
     ))
 
     # Test 3: Gold (d-block, Madelung exception)
-    results.append(test_element(
+    results.append(check_element(
         Z=79,
         name="Gold",
         expected_config="[Xe] 4f14 5d10 6s1",
@@ -78,7 +76,7 @@ def main():
     ))
 
     # Test 4: Oganesson (heaviest observed, noble gas)
-    results.append(test_element(
+    results.append(check_element(
         Z=118,
         name="Oganesson",
         expected_config="[Rn] 5f14 6d10 7s2 7p6",
@@ -88,7 +86,7 @@ def main():
 
     # Test 5: Element 120 (theoretical, island of stability)
     # Pyykkö (2011) predicts: [Og] 8s2
-    results.append(test_element(
+    results.append(check_element(
         Z=120,
         name="Unbinilium",
         expected_config="[Og] 8s2",

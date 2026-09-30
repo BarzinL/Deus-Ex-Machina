@@ -4,14 +4,12 @@ Automated analysis of molecular dataset for crystallization patterns.
 Processes all molecules in data/molecules/ and generates comprehensive report.
 """
 
-import sys
-sys.path.insert(0, '/run/media/Barzin/SyncSpace-ext4/Codebases/Deus Ex Machina')
-
 import json
 import glob
 from dataclasses import dataclass
 from typing import List, Tuple, Dict
 from src.crystallization.detector import CrystallizationDetector, AdditivityViolation
+from src.crystallization.naive import naive_bond_energy as _naive_bond_energy
 
 
 @dataclass
@@ -43,49 +41,8 @@ def load_molecule(filepath: str) -> MolecularStructure:
 
 
 def naive_bond_energy(structure: MolecularStructure) -> float:
-    """
-    Compute naive additive energy by summing individual bond energies.
-    """
-    total_energy = 0.0
-
-    for atom_i, atom_j, bond_order in structure.bonds:
-        elem_i = structure.atoms[atom_i]['element']
-        elem_j = structure.atoms[atom_j]['element']
-
-        # Handle different bond orders
-        if abs(bond_order - 1.5) < 0.01:  # Aromatic
-            if elem_i == 'C' and elem_j == 'C':
-                # Cyclohexatriene reference: alternating single/double
-                bond_index = atom_i
-                if bond_index % 2 == 0:
-                    energy = structure.reference_energies.get('C=C_double', 602)
-                else:
-                    energy = structure.reference_energies.get('C-C_single', 346)
-            else:
-                energy = 0.0
-        elif bond_order == 1:  # Single
-            if elem_i == 'C' and elem_j == 'C':
-                energy = structure.reference_energies.get('C-C_single', 346)
-            elif {elem_i, elem_j} == {'C', 'H'}:
-                energy = structure.reference_energies.get('C-H', 413)
-            else:
-                energy = 0.0
-        elif bond_order == 2:  # Double
-            if elem_i == 'C' and elem_j == 'C':
-                energy = structure.reference_energies.get('C=C_double', 602)
-            else:
-                energy = 0.0
-        elif bond_order == 3:  # Triple
-            if elem_i == 'C' and elem_j == 'C':
-                energy = structure.reference_energies.get('C-C_triple', 835)
-            else:
-                energy = 0.0
-        else:
-            energy = 0.0
-
-        total_energy += energy
-
-    return total_energy
+    """Naive additive energy: mean bond enthalpies over a valid Kekulé structure."""
+    return _naive_bond_energy(structure.atoms, structure.bonds, structure.reference_energies)
 
 
 def analyze_dataset():

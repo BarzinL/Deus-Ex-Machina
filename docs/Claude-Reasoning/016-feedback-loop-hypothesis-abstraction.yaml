@@ -1,3 +1,7 @@
+# SUPERSEDED IN PART (2026-09-30): benzene violation is +203 (not +148), naphthalene +371
+# (not +115; 'diminishing returns' was a naive-model bug). Ratios below use a baseline with
+# known hybridization error. See 020-baseline-and-kekule-corrections.md.
+
 abstraction:
   name: "Cycles Amplify Correlation Through Feedback Loops"
 

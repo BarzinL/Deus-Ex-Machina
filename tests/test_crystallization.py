@@ -5,13 +5,11 @@ This tests the fundamental question: Can we detect when a system should be
 cached as a unit rather than decomposed?
 """
 
-import sys
-sys.path.insert(0, '/run/media/Barzin/SyncSpace-ext4/Codebases/Deus Ex Machina')
-
 import json
 from dataclasses import dataclass
 from typing import List, Tuple
 from src.crystallization.detector import CrystallizationDetector
+from src.crystallization.naive import naive_bond_energy as _naive_bond_energy
 
 
 @dataclass
@@ -39,55 +37,8 @@ def load_molecule(filepath: str) -> MolecularStructure:
 
 
 def naive_bond_energy(structure: MolecularStructure) -> float:
-    """
-    Compute naive additive energy by summing individual bond energies.
-
-    This treats the molecule as a simple sum of isolated bonds,
-    ignoring resonance, strain, and other collective effects.
-    """
-    total_energy = 0.0
-
-    for atom_i, atom_j, bond_order in structure.bonds:
-        # Get atoms
-        elem_i = structure.atoms[atom_i]['element']
-        elem_j = structure.atoms[atom_j]['element']
-
-        # Look up bond energy based on elements and order
-        bond_key = f"{elem_i}-{elem_j}"
-        if bond_key not in structure.reference_energies:
-            bond_key = f"{elem_j}-{elem_i}"  # Try reverse
-
-        # For benzene, treat aromatic bonds as LOCALIZED (alternating single/double)
-        # This gives the "cyclohexatriene" reference for measuring resonance energy
-        if abs(bond_order - 1.5) < 0.01:  # Aromatic bond
-            if elem_i == 'C' and elem_j == 'C':
-                # Cyclohexatriene has 3 single + 3 double bonds
-                # Alternate: bond 0 is double, 1 is single, 2 is double, etc.
-                bond_index = atom_i  # Use atom index as proxy for bond index
-                if bond_index % 2 == 0:
-                    energy = structure.reference_energies['C=C_double']
-                else:
-                    energy = structure.reference_energies['C-C_single']
-            else:
-                energy = 0.0
-        elif bond_order == 1:  # Single bond
-            if elem_i == 'C' and elem_j == 'C':
-                energy = structure.reference_energies['C-C_single']
-            elif (elem_i == 'C' and elem_j == 'H') or (elem_i == 'H' and elem_j == 'C'):
-                energy = structure.reference_energies['C-H']
-            else:
-                energy = 0.0
-        elif bond_order == 2:  # Double bond
-            if elem_i == 'C' and elem_j == 'C':
-                energy = structure.reference_energies['C=C_double']
-            else:
-                energy = 0.0
-        else:
-            energy = 0.0
-
-        total_energy += energy
-
-    return total_energy
+    """Naive additive energy: mean bond enthalpies over a valid Kekulé structure."""
+    return _naive_bond_energy(structure.atoms, structure.bonds, structure.reference_energies)
 
 
 def test_benzene_violation():

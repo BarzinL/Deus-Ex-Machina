@@ -1,5 +1,8 @@
 # Complete NIST Verification Summary
 
+> **Superseded in part (2026-09-30)**: benzene violation is +203 (not +148) and naphthalene is +371 (not +115; the "diminishing returns" result was a naive-model bug). See [020](020-baseline-and-kekule-corrections.md).
+
+
 **Date**: 2025-11-26
 **Status**: ✅ ALL MOLECULES VERIFIED
 

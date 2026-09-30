@@ -27,7 +27,7 @@
   "energies": {
     "actual_bond_energy": 4066,
     "uncertainty": 1,
-    "comment": "Conjugated system (alternating double bonds) but acyclic. Shows +38 kJ/mol conjugation stabilization - STRONGER than previously claimed but still MUCH less than benzene's +148 kJ/mol (benzene/butadiene = 3.9× amplification). Calculated from NIST: ΔHf = 108.8 ± 0.79 kJ/mol → BDE = (4×716.68 + 6×218.0) - 108.8 = 4066 kJ/mol. Tests: does conjugation require cycles for strong amplification? Answer: Acyclic conjugation exists (+38) but cyclic amplifies by 3.9×. CORRECTED from previous value (4045, +17 kJ/mol) which underestimated by 55% (-21 kJ/mol error).",
+    "comment": "Conjugated system (alternating double bonds) but acyclic. Shows +38 kJ/mol conjugation stabilization - STRONGER than previously claimed but still MUCH less than benzene's +203 kJ/mol (benzene/butadiene = 5.3×). Calculated from NIST: ΔHf = 108.8 ± 0.79 kJ/mol → BDE = (4×716.68 + 6×218.0) - 108.8 = 4066 kJ/mol. Tests: does conjugation require cycles for strong amplification? Answer: Acyclic conjugation exists (+38) but cyclic amplifies by 5.3×. CORRECTED from previous value (4045, +17 kJ/mol) which underestimated by 55% (-21 kJ/mol error).",
     "source": "Prosen et al., J. Res. NBS 1951, 46:106-112; NIST Chemistry WebBook",
     "source_type": "experimental",
     "method": "Combustion calorimetry",
@@ -51,9 +51,9 @@
     "Central C-C bond has partial double-bond character (~1.46 Å)",
     "NIST-verified conjugation: +38 kJ/mol (was incorrectly claimed as ~17)",
     "Acyclic conjugation is STRONGER than initially thought",
-    "But still 3.9× less than benzene (+148 kJ/mol) - cycle amplification confirmed",
+    "But still 5.3× less than benzene (+203 kJ/mol) - cycle amplification confirmed",
     "Critical test: is the cycle necessary for strong amplification? Answer: YES",
     "Linear conjugation provides significant stabilization (+38 kJ/mol)",
-    "But cyclic topology amplifies this by 3.9× through feedback loops"
+    "But cyclic topology amplifies this by 5.3× through feedback loops"
   ]
 }

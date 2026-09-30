@@ -7,13 +7,14 @@ Copyright (C) 2025 Barzin Lotfabadi
 This software is available under a dual-licensing model:
 
 1. OPEN SOURCE LICENSE (AGPLv3)
-   - Free for non-commercial, open-source, and research use
-   - Must comply with AGPLv3 terms (see below)
-   - Derivative works must also be open-sourced under AGPLv3
+   - Free for any use, including commercial use, provided you comply with the
+     AGPLv3 terms (see below)
+   - Derivative works, including modified versions offered over a network,
+     must make their source available under AGPLv3
 
 2. COMMERCIAL LICENSE
-   - Required for commercial use, proprietary applications, or closed-source
-     modifications
+   - Required only if you want to use this software without the AGPLv3
+     obligations (proprietary applications or closed-source modifications)
    - Allows integration into proprietary software without AGPLv3 requirements
    - Contact for commercial licensing:
 

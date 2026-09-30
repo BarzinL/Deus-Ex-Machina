@@ -3,8 +3,6 @@ Comprehensive validation of electron configuration generator.
 Tests key elements across all periods and blocks.
 """
 
-import sys
-sys.path.insert(0, '/run/media/Barzin/SyncSpace-ext4/Codebases/Deus Ex Machina')
 
 from src.theory.quantum import madelung_rule, count_valence, orbital_type
 

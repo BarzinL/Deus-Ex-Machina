@@ -54,10 +54,11 @@ A private experiment on a machine learning model called NGL-1 used an innovative
 
 ### Validation Status
 
-The framework has been validated on a benchmark set of chemical structures:
-- **Rediscovery of Aromaticity:** Automatically flagged Benzene as a "Must Cache" primitive due to its high stability violation (+148 kJ/mol).
-- **Control Cases:** Correctly identified Ethylene as an additive structure (~0 violation), confirming the system does not overfit.
-- **Diminishing Returns:** Detected non-linear scaling in fused ring systems (Naphthalene).
+Early results on a 9-molecule benchmark (mean-bond-enthalpy baseline, atomization energies from NIST heats of formation):
+- **Aromaticity:** Benzene shows a +203 kJ/mol violation (3.7% of total bond energy). At the current 5% threshold the detector classifies it as "uncertain", not "must cache"; only cyclobutadiene (−237 kJ/mol) crosses the threshold.
+- **Control case:** Ethylene shows ~0 violation (−1 kJ/mol).
+- **Known limitation:** Mean bond enthalpies ignore hybridization, so acyclic conjugated molecules (butadiene +38, hexatriene +74) and even non-aromatic cyclooctatetraene (+84) show positive violations that are partly baseline error. A homodesmotic or group-additivity baseline is needed before interpreting ratios between molecules.
+- **Correction (2026-09-30):** An earlier "diminishing returns in fused rings" result for naphthalene came from a bug in the naive model (invalid Kekulé structure). See `docs/Claude-Reasoning/020-baseline-and-kekule-corrections.md`.
 
 ---
 
@@ -163,11 +164,12 @@ valence = count_valence(config)  # → 2
 ### Run Tests
 
 ```bash
-# Basic tests (H, C, Au, Og, 120)
-python tests/test_quantum.py
+# Full test suite
+python -m pytest
 
-# Comprehensive validation (29 key elements)
-python tests/validate_comprehensive.py
+# Verbose reports, run as scripts from the repo root
+PYTHONPATH=. python tests/validate_comprehensive.py   # 29 key elements
+PYTHONPATH=. python tests/test_dataset_analysis.py    # molecule violation table
 ```
 
 ---
@@ -205,10 +207,10 @@ python tests/validate_comprehensive.py
 This software is available under a dual-licensing model:
 
 ### Open Source License (AGPLv3)
-Free for non-commercial, open-source, and research use. This software is very copyleft and very free. Derivative works must also be open-sourced under AGPLv3.
+Free for any use, including commercial, as long as you comply with AGPLv3. This software is very copyleft and very free. Derivative works (including modified versions served over a network) must also be open-sourced under AGPLv3.
 
 ### Commercial License
-Want to use this in proprietary software or keep your modifications closed-source? That requires a commercial license. If you're making money off this work, I deserve a cut.
+Want to use this in proprietary software or keep your modifications closed-source? That requires a commercial license. If you're making money off this work without giving your source back, I deserve a cut.
 
 **Commercial licensing contact:**
 - Email: barzin@duck.com

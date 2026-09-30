@@ -30,17 +30,22 @@
     [5, 11, 1]
   ],
   "energies": {
-    "actual_bond_energy": 5470,
-    "uncertainty": 2,
-    "comment": "Total bond energy including aromatic stabilization. Benzene has +148 kJ/mol resonance energy making bonds STRONGER than localized cyclohexatriene structure. Measured via hydrogenation experiments: benzene → cyclohexane releases -208 kJ/mol, vs expected -360 kJ/mol for cyclohexatriene, giving 152 kJ/mol aromatic stabilization.",
-    "source": "Kistiakowsky et al., J. Am. Chem. Soc. 1936, 58:146-153",
+    "actual_bond_energy": 5525,
+    "uncertainty": 0.9,
+    "comment": "Atomization energy from gas-phase heat of formation, same method as the other molecules in this dataset: BDE = (6×716.68 + 6×218.0) - 82.9 = 5525.2 kJ/mol. Violation vs naive Kekulé sum (5322) = +203 kJ/mol. CORRECTED from previous value (5470), which was back-computed as naive + 148 (hydrogenation-based resonance energy) rather than measured, making benzene inconsistent with every other entry. See docs/Claude-Reasoning/020.",
+    "source": "NIST Chemistry WebBook, benzene gas-phase ΔfH° = 82.9 ± 0.9 kJ/mol",
+    "source_verification": "Value corroborated via secondary search results on 2026-09-30; NIST WebBook and ATcT were not reachable from the verification environment. Primary reference still to be confirmed against the WebBook entry.",
     "source_type": "experimental",
-    "method": "Hydrogenation calorimetry (benzene → cyclohexane)",
-    "resonance_energy": 148,
-    "resonance_energy_literature": 152,
-    "resonance_energy_uncertainty": 2,
-    "confidence": 0.95,
-    "confidence_note": "Well-established experimental value, measured by multiple independent methods since 1936. Uncertainty ~1-2 kJ/mol."
+    "method": "NIST ΔfH° compilation → atomization energy",
+    "heat_of_formation": 82.9,
+    "heat_of_formation_uncertainty": 0.9,
+    "heat_of_formation_units": "kJ/mol",
+    "violation": 203,
+    "hydrogenation_resonance_energy": 152,
+    "hydrogenation_resonance_energy_source": "Kistiakowsky et al., J. Am. Chem. Soc. 1936, 58:146-153 (3×cyclohexene hydrogenation vs benzene hydrogenation)",
+    "hydrogenation_resonance_energy_note": "Different reference (cyclohexene) than the mean-bond-enthalpy baseline used here; not directly comparable to the violation column.",
+    "confidence": 0.9,
+    "confidence_note": "ΔfH° well established; confidence reduced from 0.95 only because the primary entry was not re-fetched in this pass."
   },
   "reference_energies": {
     "C-C_single": 346,
@@ -49,9 +54,10 @@
     "comment": "Standard bond energies (kJ/mol) for naive calculation"
   },
   "notes": [
-    "Benzene exhibits aromatic stabilization (~150 kJ/mol resonance energy)",
-    "Bond orders shown as 1.5 to represent delocalized π-system",
-    "Naive prediction would use localized single/double bonds",
-    "This is THE canonical example of additivity violation in chemistry"
+    "Benzene exhibits aromatic stabilization",
+    "Bond orders shown as 1.5 to represent delocalized π-system; naive model localizes them into a Kekulé structure (3 C=C, 3 C-C)",
+    "Violation against mean-bond-enthalpy baseline: +203 kJ/mol",
+    "Hydrogenation-based resonance energy (cyclohexene reference): ~150 kJ/mol; the two numbers use different baselines",
+    "The 203 figure includes mean-bond-enthalpy reference error (hybridization), as do the acyclic polyene values"
   ]
 }

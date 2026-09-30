@@ -45,18 +45,18 @@
   "energies": {
     "actual_bond_energy": 8761,
     "uncertainty": 10,
-    "comment": "Two fused aromatic rings. CRITICAL FINDING: Shows +115 kJ/mol resonance energy, LESS than 2×benzene (would be 2×148 = 296 kJ/mol if linear). Demonstrates DIMINISHING RETURNS with ring fusion - shared edge constrains π-electron delocalization. Calculated from NIST: ΔHf = 150 ± 10 kJ/mol → BDE = (10×716.68 + 8×218.0) - 150 = 8761 kJ/mol. Naphthalene/benzene ratio = 115/148 = 0.78× per ring when fused. CORRECTED from previous value (8900, +254 kJ/mol) which overestimated by 121% (+139 kJ/mol error).",
+    "comment": "Two fused aromatic rings. Calculated from NIST: ΔHf = 150 ± 10 kJ/mol → BDE = (10×716.68 + 8×218.0) - 150 = 8761 kJ/mol. Naive Kekulé sum (5 C=C, 6 C-C, 8 C-H) = 8390 kJ/mol → violation +371 ± 10 kJ/mol. Naphthalene/benzene = 371/203 = 1.83×, i.e. ~0.91× per ring. The earlier +115 figure (and the 'diminishing returns, 0.78× per ring' claim) came from a naive-model bug that assigned 6 C=C bonds, which is not a valid Kekulé structure. See docs/Claude-Reasoning/020.",
     "source": "Thermodynamics Research Center, 1997 (average of 7 values); NIST Chemistry WebBook",
     "source_type": "experimental",
     "method": "Average of multiple experimental measurements",
     "heat_of_formation": 150,
     "heat_of_formation_uncertainty": 10,
     "heat_of_formation_units": "kJ/mol",
-    "resonance_energy": 115,
-    "resonance_energy_per_ring": 57.5,
+    "resonance_energy": 371,
+    "resonance_energy_per_ring": 185.5,
     "resonance_energy_uncertainty": 10,
     "confidence": 0.90,
-    "confidence_note": "NIST-verified value from average of 7 experimental measurements. Larger uncertainty (±10 kJ/mol) reflects variation between methods. Diminishing returns is scientifically important finding."
+    "confidence_note": "NIST-verified value from average of 7 experimental measurements. Larger uncertainty (±10 kJ/mol) reflects variation between methods."
   },
   "reference_energies": {
     "C-C_single": 346,
@@ -67,14 +67,9 @@
   "notes": [
     "Naphthalene: two fused benzene rings sharing one C-C edge",
     "10 π-electrons → follows Hückel's rule (4n+2, n=2)",
-    "NIST-verified resonance energy: +115 kJ/mol (was incorrectly claimed as ~255)",
-    "DIMINISHING RETURNS: 115 kJ/mol is LESS than benzene (148 kJ/mol), not more!",
-    "If aromatic stabilization scaled linearly: would expect 2×148 = 296 kJ/mol",
-    "Actual: 115/148 = 0.78× per ring when fused (not 1.7× as previously claimed)",
-    "Interpretation: Ring fusion CONSTRAINS π-electron delocalization",
-    "Shared edge reduces mobility compared to two independent benzene rings",
-    "This is scientifically MORE interesting than linear scaling",
-    "Tests: How does aromatic stabilization scale with ring count?",
-    "Answer: SUB-LINEAR scaling due to geometric constraints"
+    "Violation vs mean-bond-enthalpy Kekulé baseline: +371 ± 10 kJ/mol",
+    "Ratio to benzene (+203): 1.83×, ~0.91× per ring — slightly sub-linear, within what baseline error could produce",
+    "Previous +115 / 0.78× 'diminishing returns' finding was an artifact of an invalid Kekulé assignment (6 C=C instead of 5)",
+    "Tests: How does aromatic stabilization scale with ring count? Needs a better baseline (homodesmotic / group additivity) before interpreting"
   ]
 }

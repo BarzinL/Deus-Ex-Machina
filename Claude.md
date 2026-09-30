@@ -28,7 +28,9 @@ If we:
 3. Define composition rules between levels
 4. Search at appropriate abstraction
 
-Then: Orders of magnitude speedup vs. brute force computation.
+Then: a smaller search space than brute force, by an amount that is not yet measured and depends on how often additivity holds in the domain. Hierarchy does not imply additivity; see docs/Claude-Reasoning/021-scope-and-novelty.md.
+
+The Crystallization Detector is retrospective (it needs the true value as input). Do not describe it as predicting boundaries in advance.
 
 The boundaries between hierarchical levels correspond to compositional boundaries — points where correlation between components creates stable primitives. Understanding what makes these boundaries real is central to the research.
 

@@ -1,6 +1,6 @@
 # Deus Ex Machina
 
-**Universal framework for accelerating scientific discovery through hierarchical lookup table (LUT) composition.**
+**Research framework exploring hierarchical lookup table (LUT) composition for scientific discovery, and where it breaks down.**
 
 [![License: Dual (AGPLv3/Commercial)](https://img.shields.io/badge/License-Dual%20(AGPLv3%2FCommercial)-blue.svg)](#license)
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
@@ -20,13 +20,17 @@ Reality has natural hierarchical structure:
 3. Define composition rules between levels
 4. Search at appropriate abstraction
 
-Then: **Orders of magnitude speedup** vs. brute force computation.
+Then: the search space shrinks, because candidates are built from cached, pre-validated parts instead of simulated from scratch.
+
+How much it shrinks is **not yet measured** here. It depends on how many candidates the composition rules exclude, and on how often the additive assumption holds in the domain (see [Scope and limits](#scope-and-limits)).
 
 ### The Architectural Pattern
 
-This project implements a software architecture designed to transform $O(N^k)$ search problems into $O(N \times k)$ lookup problems. By identifying "compositional boundaries"—points where a system crystallizes into a stable unit—we can cache complex structures as simple primitives.
+By identifying "compositional boundaries" (points where a system behaves as a stable unit), complex structures can be cached as primitives and reused at the next level up. Lookup replaces recomputation for anything already in a table. Composing primitives into *new* candidates is still a combinatorial search; it is smaller than a search over raw components, but not eliminated.
 
-Key component: **The Crystallization Detector**. An algorithm that compares naive additive predictions against ground-truth data (experiment or simulation) to automatically identify stable abstractions (like aromatic rings) without hardcoded rules.
+Key component: **The Crystallization Detector**. It compares a naive additive prediction against a measured or computed value and reports the residual (the "additivity violation"). A large residual means the structure should be cached as a unit, not decomposed.
+
+The detector is **retrospective**: it needs the true value as input, so it can only classify structures that have already been measured or computed. Predicting where additivity will fail *before* measuring is the open problem this project is aimed at; it is not solved here.
 
 ### Explained accessibly:
 
@@ -36,7 +40,7 @@ For example: the periodic table of atomic elements has distinct properties. The 
 
 At every scale, from the planck scale to the macro scale, stable systems "crystallize" into composable parts. When you identify these boundaries (where things like feedback loops or constraints create stability) and then cache them into lookup tables, that can empower you to transform search problems.
 
-Rather than simulating every atom's interaction (which becomes an $O(N^k)$ time complexity in computational cost), we instead just compose pre-validated, stable primitives -- and because we only traverse physically/chemically valid branches of the tree, the combinatorial explosion is tamed at least somewhat, and this effectively reduces the discovery to a series of $O(N*k)$ time complexity lookups across those hierarchical levels.
+Rather than simulating every atom's interaction, we compose pre-validated, stable primitives, and only traverse physically/chemically valid branches of the tree. That tames the combinatorial explosion somewhat. It does not remove it: combining primitives is still a search, and every place where the parts interact non-additively needs a correction or a new cached unit.
 
 Paired with a smart querying program hooked into an LLM using it for tool-calling, you can create an inverse design funnel for whatever, where you just say *"find me a PCB design that has better heat dissipation than conventional FR-4 fiberglass PCBs"* and it will flip through its materials lookup table and find things with better heat dissipation, and then chain those candidates into its manufacturing lookup table to find how to build it.
 
@@ -44,11 +48,29 @@ The ideal is to use this to transform search problems into inverse design funnel
 
 ---
 
-## Proven Pattern
+## Motivating Example
 
-A private experiment on a machine learning model called NGL-1 used an innovative tokenizer which achieved **95% memory reduction** (1.1M+ UTF-8 codepoints in 4.4MB) through hierarchical LUT strategy, decoupling token embeddings from conceptual space.
+A private experiment on a machine learning model called NGL-1 used a hierarchical LUT tokenizer that stored 1.1M+ UTF-8 codepoints in 4.4MB, decoupling token embeddings from conceptual space. This motivated the project; it is unpublished and is not evidence that the approach generalizes to physical or biological systems.
 
-**This same principle should generalize across all domains with hierarchical structure.**
+---
+
+## Scope and Limits
+
+**Hierarchy does not imply additivity.** Everything above assumes a whole can be predicted from its parts plus a small number of corrections. Hierarchical structure is common; small corrections are not guaranteed.
+
+- **Where additivity mostly holds:** gas-phase thermochemistry of organic molecules. Group additivity methods predict heats of formation from cached group values plus ring and aromaticity corrections.
+- **Where it often fails:** interacting parts whose effect depends on context. Examples include epistasis between mutations in a protein, drug synergy and antagonism, binding affinity, and tissue-level effects of combined interventions. Here the "correction" terms can be as large as the additive terms, and a lookup table of parts predicts little.
+
+The detector's job is to measure which regime a system is in. It does not make a non-additive domain additive.
+
+**Prior art.** The core pattern (cache parts, compose, correct where composition fails) is established:
+- Benson group additivity for thermochemistry (Benson & Buss, *J. Chem. Phys.* 1958, 29:546)
+- Automatic discovery of context-dependent group contributions, e.g. [CARGO](https://pub.uni-bielefeld.de/record/2987396)
+- Δ-learning: ML models trained to predict the residual of a cheap baseline (Ramakrishnan et al., *J. Chem. Theory Comput.* 2015, 11:2087)
+- Active learning for synergistic drug combinations ([guide, bioRxiv 2024](https://www.biorxiv.org/content/10.1101/2024.09.13.612819.full.pdf))
+- Predicting lifespan effects of combined interventions from single-intervention survival curves in *C. elegans* ([bioRxiv 2020](https://dx.doi.org/10.1101/2020.04.22.054767))
+
+What this project can add is covered in `docs/Claude-Reasoning/021-scope-and-novelty.md`.
 
 ---
 

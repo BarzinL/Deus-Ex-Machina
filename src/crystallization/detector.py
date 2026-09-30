@@ -9,6 +9,9 @@ This detector is domain-agnostic. It works on any system where:
 1. You have a substrate representation (atoms, quarks, components, etc.)
 2. You can define a naive composition function (sum bond energies, etc.)
 3. You have actual ground truth (experiment, expensive calculation, etc.)
+
+The detector is retrospective: it classifies structures whose true value is
+already known. It does not predict boundaries for unmeasured structures.
 """
 
 from dataclasses import dataclass
